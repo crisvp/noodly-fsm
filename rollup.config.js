@@ -1,6 +1,5 @@
 // rollup.config.js
 import typescript from '@rollup/plugin-typescript';
-import dts from 'rollup-plugin-dts';
 import { minify } from 'rollup-plugin-esbuild';
 
 export default [
@@ -21,10 +20,5 @@ export default [
       },
     ],
     plugins: [typescript()],
-  },
-  {
-    input: ['src/fsm.ts'],
-    output: [{ file: 'dist/fsm.d.ts', format: 'es' }],
-    plugins: [dts()],
   },
 ];
