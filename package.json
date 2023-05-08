@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "build": "rollup -c rollup.config.js"
+    "prepublish": "rollup -c rollup.config.js"
   },
   "author": {
     "name": "Cris van Pelt",
