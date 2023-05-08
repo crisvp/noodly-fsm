@@ -11,10 +11,11 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "dist",
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
     "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "build",
+    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "strict": true,
     "resolveJsonModule": true,
@@ -22,7 +23,7 @@
     "lib": ["ES2022"]
   },
   "include": ["**/*.ts"],
-  "exclude": ["node_modules/**/*"]
+  "exclude": ["node_modules/**/*", "build/**/*"]
 }
 
 

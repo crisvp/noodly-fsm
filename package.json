@@ -1,13 +1,13 @@
 {
   "name": "noodly-fsm",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A simple, type-safe, finite state machine",
   "main": "dist/index.js",
   "type": "module",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "prepublish": "rollup -c rollup.config.js"
@@ -29,6 +29,7 @@
     "jest": "^29.5.0",
     "mkdirp": "^3.0.1",
     "rollup": "^3.21.5",
+    "rollup-plugin-dts": "^5.3.0",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.4"
   },
