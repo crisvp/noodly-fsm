@@ -26,8 +26,8 @@ export function defineStateMachine<Def extends Props>(props: Def) {
       throw new Error(`Invalid named state transition (${key}) to ${props['transitions'][key]['to']}.
         Attempted transition from ${this._state}, should be ${props['transitions'][key]['from']}.`);
     }
-    const fn = props.transitions[key]['callback'] as unknown as (a: typeof args) => Promise<void>;
-    await fn(args);
+    const fn = props.transitions[key]['callback'] as unknown as (...a: typeof args) => Promise<void>;
+    await fn(...args);
     this._state = props['transitions'][key]['to'];
   }
 
