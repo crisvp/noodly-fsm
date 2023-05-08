@@ -1,26 +1,38 @@
 {
   "name": "noodly-fsm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple, type-safe, finite state machine",
   "main": "index.js",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "rollup -c rollup.config.js"
   },
   "author": {
     "name": "Cris van Pelt",
     "email": "noodle@scarecrow.boats"
   },
-	"devDependencies": {
-		"@tsconfig/node20": "^1.0.0",
-		"@types/jest": "^29.5.1",
-		"@types/node": "^20.1.0",
-		"@typescript-eslint/eslint-plugin": "^5.59.2",
-		"eslint": "^8.40.0",
-		"eslint-config-prettier": "^8.8.0",
-		"eslint-plugin-import": "^2.27.5",
-		"eslint-plugin-simple-import-sort": "^10.0.0",
-		"jest": "^29.5.0",
-		"ts-jest": "^29.1.0",
-		"typescript": "^5.0.4"
-	}
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@tsconfig/node20": "^1.0.0",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^20.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "jest": "^29.5.0",
+    "mkdirp": "^3.0.1",
+    "rollup": "^3.21.5",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "rollup-plugin-esbuild": "^5.0.0"
+  }
 }
