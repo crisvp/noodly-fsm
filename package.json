@@ -1,8 +1,8 @@
 {
   "name": "noodly-fsm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple, type-safe, finite state machine",
-  "main": "index.js",
+  "main": "dist/index.js",
   "type": "module",
   "files": [
     "dist",
