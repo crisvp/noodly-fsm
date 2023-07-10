@@ -1,6 +1,6 @@
 interface Transitions {
-  [key: string]: {
-    from: string | string[];
+  readonly [key: string]: {
+    from: Readonly<string | string[]>;
     to: string;
     callback: (...args: any[]) => Promise<void>;
   };
@@ -12,7 +12,7 @@ interface Props {
   mode?: 'early' | 'late';
 }
 
-export function defineStateMachine<Def extends Props>(props: Def) {
+export function defineStateMachine<Def extends Props>(props: Readonly<Def>) {
   type Args<T> = T extends (...args: infer A) => void ? A : never;
   type State = Def['states'][number];
   type Transition = keyof Def['transitions'];
@@ -27,12 +27,12 @@ export function defineStateMachine<Def extends Props>(props: Def) {
       throw new Error(`Invalid named state transition (${key}) to ${props['transitions'][key]['to']}.
         Attempted transition from ${this._state}, should be ${props['transitions'][key]['from']}.`);
     }
-    props.mode ??= 'late';
+    const mode = props.mode ?? 'late';
     const fn = props.transitions[key]['callback'] as unknown as (...a: typeof args) => Promise<void>;
 
-    if (props.mode === 'early') this._state = props['transitions'][key]['to'];
+    if (mode === 'early') this._state = props['transitions'][key]['to'];
     await fn(...args);
-    if (props.mode === 'late') this._state = props['transitions'][key]['to'];
+    if (mode === 'late') this._state = props['transitions'][key]['to'];
   }
 
   const machine = {
@@ -43,7 +43,7 @@ export function defineStateMachine<Def extends Props>(props: Def) {
     states: props.states,
     transitions: props.transitions,
     dispatch: dispatch,
-    validTransition(from: string | string[]) {
+    validTransition(from: Readonly<string | string[]>) {
       return Array.isArray(from) ? from.includes(this._state) : from === this._state;
     },
   };

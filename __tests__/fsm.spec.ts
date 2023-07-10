@@ -34,7 +34,7 @@ describe('fsm', () => {
   };
 
   const earlyMachineProps = {
-    states: ['pending', 'resolved'] as const,
+    states: ['pending', 'resolved'],
     transitions: {
       expectEarly: {
         from: 'pending',
@@ -44,11 +44,11 @@ describe('fsm', () => {
         },
       },
     },
-    mode: 'early' as const,
-  };
+    mode: 'early',
+  } as const;
 
   const lateMachineProps = {
-    states: ['pending', 'resolved'] as const,
+    states: ['pending', 'resolved'],
     transitions: {
       expectLate: {
         from: 'pending',
@@ -58,8 +58,8 @@ describe('fsm', () => {
         },
       },
     },
-    mode: 'late' as const,
-  };
+    mode: 'late',
+  } as const;
 
   const stateMachine = defineStateMachine(fsmProps);
   const lateMachine = defineStateMachine(lateMachineProps);
